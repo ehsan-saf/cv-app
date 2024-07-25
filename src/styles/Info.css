@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-content: center;
+  gap: 10px;
+
+  margin-left: 30%;
+  margin-top: 10%;
+}
+
+input {
+  border: none;
+  border-radius: 10px;
+
+  padding: 8px 10px;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 4px 2px;
+}
+
+input:focus,
+input:active {
+  outline: 1px solid blue;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 3px;
+}
+
+.infoTitle {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+label .info {
+  text-align: left;
+  padding-bottom: 3px;
+  border-bottom: 1px solid black;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: 50%;
+
+  padding: 20px;
+
+  margin-top: 15px;
+
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+}
+
+.edit-button {
+  opacity: 0;
+  transform: translateY(4px);
+
+  background-image: url("../assets/edit.svg");
+
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.container:hover .edit-button {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.confirm-button {
+  background-image: url(../assets/confirm.svg);
+}
+
+.confirm-button:hover ~ label input {
+  outline: 2px solid green;
+  box-shadow: none;
+}

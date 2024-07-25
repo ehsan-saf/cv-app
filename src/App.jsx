@@ -1,10 +1,11 @@
 import { useState } from "react";
-import "./App.css";
+import "./styles/App.css";
+import Info from "./components/Info";
 
 function App() {
   return (
     <>
-      <h2>Welcome</h2>
+      <Info infoName={"Name"} type={"text"} />
     </>
   );
 }
