@@ -14,13 +14,13 @@ export default function Info({ infoName, type }) {
   }
 
   return (
-    <div className="container">
+    <div className="info-container">
       {isEditing ? (
         <button className="btn confirm-button" onClick={toggleMode}></button>
       ) : (
         <button className="btn edit-button" onClick={toggleMode}></button>
       )}
-      <label>
+      <label className="info-label">
         <p className="infoTitle">{infoName}</p>
         {isEditing ? (
           <>

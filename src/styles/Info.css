@@ -1,11 +1,15 @@
-.container {
+.info-container {
   display: flex;
   flex-direction: row-reverse;
   align-content: center;
   gap: 10px;
+  max-width: 350px;
+}
 
-  margin-left: 30%;
-  margin-top: 10%;
+.info-label {
+  flex: 1 0 0%;
+  display: flex;
+  flex-direction: column;
 }
 
 input {
@@ -15,6 +19,8 @@ input {
   padding: 8px 10px;
 
   box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 4px 2px;
+
+  font-weight: 400;
 }
 
 input:focus,
@@ -24,12 +30,14 @@ input:active {
 }
 
 .infoTitle {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
-label .info {
+.info-label .info {
   text-align: left;
+  font-size: 1.2rem;
+
   padding-bottom: 3px;
   border-bottom: 1px solid black;
 }
@@ -59,7 +67,7 @@ label .info {
   transition: opacity 0.2s, transform 0.2s;
 }
 
-.container:hover .edit-button {
+.info-container:hover .edit-button {
   opacity: 1;
   transform: translateY(-2px);
 }
@@ -68,7 +76,7 @@ label .info {
   background-image: url(../assets/confirm.svg);
 }
 
-.confirm-button:hover ~ label input {
+.confirm-button:hover ~ .info-label input {
   outline: 2px solid green;
   box-shadow: none;
 }
