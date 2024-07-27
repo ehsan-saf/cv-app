@@ -1,0 +1,18 @@
+.education-item {
+  width: 300px;
+  display: flex;
+  gap: 3px;
+}
+
+.education-number {
+  align-self: center;
+  font-size: 1.4rem;
+}
+
+.education-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 5px;
+  border-left: 4px solid black;
+}
