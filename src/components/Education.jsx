@@ -11,9 +11,9 @@ function Item({ number, school, title, degree, start, end }) {
           {title} (<span>{degree}</span>)
         </p>
         <p>
-          <span>From</span>
+          <span>From </span>
           {`${start}`}
-          <span>Until</span>
+          <span> Until </span>
           {`${end === false ? "Now" : end}`}
         </p>
       </div>
@@ -28,9 +28,15 @@ export default function Education() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [openForm, SetOpenForm] = useState(false);
+  const [items, setItems] = useState([]);
   return (
     <>
-      <h2 className="section-title">Education</h2>
+      <div className="section-top">
+        <h2>Education</h2>
+        <button className="add-button">
+          Add <span>+</span>
+        </button>
+      </div>
       <div className="education-container">
         <Item
           number={1}
