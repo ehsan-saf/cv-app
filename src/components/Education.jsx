@@ -21,19 +21,65 @@ function Item({ number, school, title, degree, start, end }) {
   );
 }
 
+function Form({ onClose }) {
+  return (
+    <dialog className="form-dialog">
+      <form className="form">
+        <label>
+          School / University
+          <input type="text" />
+        </label>
+        <label>
+          Title of study
+          <input type="text" />
+        </label>
+        <label>
+          Degree
+          <input type="text" />
+        </label>
+        <label>
+          Start Date
+          <input type="date" />
+        </label>
+        <label>
+          End Date
+          <input type="date" />
+        </label>
+        <div className="form-buttons">
+          <button className="close-btn" onClick={onClose}>
+            Close
+          </button>
+          <button className="open-btn" type="submit">
+            Save
+          </button>
+        </div>
+      </form>
+    </dialog>
+  );
+}
+
 export default function Education() {
   const [school, setSchool] = useState("");
   const [title, setTitle] = useState("");
   const [degree, setDegree] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [openForm, SetOpenForm] = useState(false);
   const [items, setItems] = useState([]);
+
+  function handleOpenClose() {
+    const dialog = document.querySelector(".form-dialog");
+    if (dialog.open) {
+      dialog.close();
+    } else {
+      dialog.showModal();
+    }
+  }
+
   return (
     <>
       <div className="section-top">
         <h2>Education</h2>
-        <button className="add-button">
+        <button className="add-button" onClick={handleOpenClose}>
           Add <span>+</span>
         </button>
       </div>
@@ -46,6 +92,7 @@ export default function Education() {
           start={"2021/10/05"}
           end={false}
         />
+        <Form onClose={handleOpenClose} />
       </div>
     </>
   );

@@ -13,7 +13,7 @@
   margin-top: 20px;
 }
 
-input {
+.general_input {
   border: none;
   border-radius: 10px;
 
@@ -24,8 +24,8 @@ input {
   font-weight: 400;
 }
 
-input:focus,
-input:active {
+.general_input:active,
+.general_input:focus {
   outline: 1px solid blue;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 3px;
 }

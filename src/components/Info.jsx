@@ -25,6 +25,7 @@ export default function Info({ infoName, type }) {
         {isEditing ? (
           <>
             <input
+              className="general_input"
               type={type}
               placeholder={`Enter your ${infoName}`}
               value={text}

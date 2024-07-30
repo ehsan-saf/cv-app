@@ -1,3 +1,9 @@
+:root {
+  --green-button: green;
+  --red-button: red;
+  --bg-button: hsl(0, 0%, 97%);
+}
+
 .section-top {
   display: flex;
   gap: 30px;
@@ -34,6 +40,11 @@
   transform: translateY(-2px);
 }
 
+.education-container {
+  display: flex;
+  padding: 20px;
+}
+
 .education-item {
   width: 300px;
   display: flex;
@@ -51,4 +62,69 @@
   gap: 12px;
   padding: 5px;
   border-left: 4px solid black;
+}
+
+/* Form & Dialog */
+
+.form-dialog {
+  margin: 0 auto;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.form label input {
+  font-size: 1.1rem;
+
+  padding: 8px 10px;
+  border: 1px solid hsl(240, 100%, 62%);
+  border-radius: 6px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-buttons button {
+  background-color: var(--bg-button);
+
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+
+  cursor: pointer;
+}
+
+.form-buttons .open-btn {
+  border: 1px solid var(--green-button);
+}
+
+.form-buttons .close-btn {
+  border: 1px solid var(--red-button);
+}
+
+.form-buttons .open-btn:hover {
+  color: white;
+  background-color: var(--green-button);
+}
+
+.form-buttons .close-btn:hover {
+  color: white;
+  background-color: var(--red-button);
 }
