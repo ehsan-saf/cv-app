@@ -2,6 +2,8 @@
   --green-button: green;
   --red-button: red;
   --bg-button: hsl(0, 0%, 97%);
+  --input-border: hsl(217, 90%, 43%);
+  --input-border-active: hsl(217, 90%, 35%);
 }
 
 .section-top {
@@ -91,8 +93,13 @@
   font-size: 1.1rem;
 
   padding: 8px 10px;
-  border: 1px solid hsl(240, 100%, 62%);
+  border: 1px solid var(--input-border);
   border-radius: 6px;
+}
+
+.form label input:active,
+.form label input:focus {
+  outline-color: var(--input-border-active);
 }
 
 .form-buttons {

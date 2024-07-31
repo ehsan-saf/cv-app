@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "../styles/Education.css";
 
 function Item({ number, school, title, degree, start, end }) {
@@ -21,10 +21,15 @@ function Item({ number, school, title, degree, start, end }) {
   );
 }
 
-function Form({ onClose }) {
+function Form({ formRef, onClose }) {
   return (
-    <dialog className="form-dialog">
-      <form className="form">
+    <dialog className={"form-dialog"} ref={formRef}>
+      <form
+        className="form"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <label>
           School / University
           <input type="text" />
@@ -46,10 +51,14 @@ function Form({ onClose }) {
           <input type="date" />
         </label>
         <div className="form-buttons">
-          <button className="close-btn" onClick={onClose}>
+          <button className="close-btn" onClick={() => onClose(false)}>
             Close
           </button>
-          <button className="open-btn" type="submit">
+          <button
+            className="open-btn"
+            type="submit"
+            onClick={() => onClose(true)}
+          >
             Save
           </button>
         </div>
@@ -65,13 +74,18 @@ export default function Education() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [items, setItems] = useState([]);
+  const formRef = useRef(null);
 
-  function handleOpenClose() {
-    const dialog = document.querySelector(".form-dialog");
-    if (dialog.open) {
-      dialog.close();
+  function handleOpenClose(isSave) {
+    if (formRef.current.open) {
+      if (isSave) {
+        console.log("Save the data");
+      } else {
+        console.log("Cancel operation");
+      }
+      formRef.current.close();
     } else {
-      dialog.showModal();
+      formRef.current.showModal();
     }
   }
 
@@ -92,7 +106,7 @@ export default function Education() {
           start={"2021/10/05"}
           end={false}
         />
-        <Form onClose={handleOpenClose} />
+        <Form onClose={handleOpenClose} formRef={formRef} />
       </div>
     </>
   );
