@@ -21,7 +21,7 @@ function Item({ number, school, title, degree, start, end }) {
   );
 }
 
-function Form({ formRef, onClose }) {
+function Form({ formRef, onClose, onChange, obj }) {
   return (
     <dialog className={"form-dialog"} ref={formRef}>
       <form
@@ -32,23 +32,43 @@ function Form({ formRef, onClose }) {
       >
         <label>
           School / University
-          <input type="text" />
+          <input
+            type="text"
+            name="school"
+            onChange={onChange}
+            value={obj.school}
+          />
         </label>
         <label>
           Title of study
-          <input type="text" />
+          <input
+            type="text"
+            name="title"
+            onChange={onChange}
+            value={obj.title}
+          />
         </label>
         <label>
           Degree
-          <input type="text" />
+          <input
+            type="text"
+            name="degree"
+            onChange={onChange}
+            value={obj.degree}
+          />
         </label>
         <label>
           Start Date
-          <input type="date" />
+          <input
+            type="date"
+            name="start"
+            onChange={onChange}
+            value={obj.start}
+          />
         </label>
         <label>
           End Date
-          <input type="date" />
+          <input type="date" name="end" onChange={onChange} value={obj.end} />
         </label>
         <div className="form-buttons">
           <button className="close-btn" onClick={() => onClose(false)}>
@@ -68,25 +88,43 @@ function Form({ formRef, onClose }) {
 }
 
 export default function Education() {
-  const [school, setSchool] = useState("");
-  const [title, setTitle] = useState("");
-  const [degree, setDegree] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [items, setItems] = useState([]);
+  const [selectedItem, setSelectedItem] = useState({
+    school: "",
+    title: "",
+    degree: "",
+    start: "",
+    end: "",
+  });
+  const [educationArray, setEducationArray] = useState([]);
   const formRef = useRef(null);
+
+  const clearItem = () => {
+    setSelectedItem({
+      school: "",
+      title: "",
+      degree: "",
+      start: "",
+      end: "",
+    });
+  };
 
   function handleOpenClose(isSave) {
     if (formRef.current.open) {
       if (isSave) {
         console.log("Save the data");
+        setEducationArray([...educationArray, { ...selectedItem }]);
       } else {
         console.log("Cancel operation");
       }
+      clearItem();
       formRef.current.close();
     } else {
       formRef.current.showModal();
     }
+  }
+
+  function handleChange(e) {
+    setSelectedItem({ ...selectedItem, [e.target.name]: e.target.value });
   }
 
   return (
@@ -106,7 +144,25 @@ export default function Education() {
           start={"2021/10/05"}
           end={false}
         />
-        <Form onClose={handleOpenClose} formRef={formRef} />
+        {educationArray.map((item, index) => {
+          return (
+            <Item
+              key={index}
+              number={index + 1}
+              school={item.school}
+              title={item.title}
+              degree={item.degree}
+              start={item.start}
+              end={item.end}
+            />
+          );
+        })}
+        <Form
+          onClose={handleOpenClose}
+          formRef={formRef}
+          onChange={handleChange}
+          obj={selectedItem}
+        />
       </div>
     </>
   );
