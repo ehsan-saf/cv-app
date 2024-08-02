@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "../styles/Education.css";
 
 function Item({ number, school, title, degree, start, end }) {
@@ -112,7 +113,8 @@ export default function Education() {
     if (formRef.current.open) {
       if (isSave) {
         console.log("Save the data");
-        setEducationArray([...educationArray, { ...selectedItem }]);
+        const newItem = { key: uuidv4(), ...selectedItem };
+        setEducationArray([...educationArray, newItem]);
       } else {
         console.log("Cancel operation");
       }
@@ -147,7 +149,7 @@ export default function Education() {
         {educationArray.map((item, index) => {
           return (
             <Item
-              key={index}
+              key={item.key}
               number={index + 1}
               school={item.school}
               title={item.title}
