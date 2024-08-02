@@ -4,7 +4,7 @@ import Input from "./Input";
 import "../styles/Input.css";
 import "../styles/Education.css";
 
-function Item({ number, school, title, degree, start, end }) {
+function Item({ id, number, school, title, degree, start, end, onEdit }) {
   return (
     <div className="education-item">
       <div className="education-number">{number}</div>
@@ -19,6 +19,12 @@ function Item({ number, school, title, degree, start, end }) {
           <span> Until </span>
           {`${end === false ? "Now" : end}`}
         </p>
+      </div>
+      <div>
+        <button
+          className={"btn edit-button"}
+          onClick={() => onEdit(id)}
+        ></button>
       </div>
     </div>
   );
@@ -92,8 +98,11 @@ export default function Education() {
     degree: "",
     start: "",
     end: "",
+    id: "",
   });
   const [educationArray, setEducationArray] = useState([]);
+  const [inputMode, setInputMode] = useState("add");
+  const [selectedId, setSelectedId] = useState("");
   const formRef = useRef(null);
 
   const clearItem = () => {
@@ -103,15 +112,27 @@ export default function Education() {
       degree: "",
       start: "",
       end: "",
+      id: "",
     });
   };
 
   function handleOpenClose(isSave) {
     if (formRef.current.open) {
       if (isSave) {
-        console.log("Save the data");
-        const newItem = { key: uuidv4(), ...selectedItem };
-        setEducationArray([...educationArray, newItem]);
+        if (inputMode === "edit") {
+          const arr = educationArray.map((item) => {
+            if (item.id === selectedId) {
+              console.log(selectedItem);
+              return { ...selectedItem, id: item.id };
+            } else {
+              return item;
+            }
+          });
+          setEducationArray(arr);
+        } else {
+          const newItem = { id: uuidv4(), ...selectedItem };
+          setEducationArray([...educationArray, newItem]);
+        }
       } else {
         console.log("Cancel operation");
       }
@@ -120,6 +141,14 @@ export default function Education() {
     } else {
       formRef.current.showModal();
     }
+    setInputMode("add");
+  }
+
+  function handleEdit(id) {
+    setInputMode("edit");
+    setSelectedId(id);
+    setSelectedItem(educationArray.find((item) => item.id === selectedId));
+    formRef.current.showModal();
   }
 
   function handleChange(e) {
@@ -146,13 +175,15 @@ export default function Education() {
         {educationArray.map((item, index) => {
           return (
             <Item
-              key={item.key}
+              key={item.id}
+              id={item.id}
               number={index + 1}
               school={item.school}
               title={item.title}
               degree={item.degree}
               start={item.start}
               end={item.end}
+              onEdit={handleEdit}
             />
           );
         })}

@@ -47,25 +47,6 @@
   padding: 20px;
 }
 
-.education-item {
-  width: 300px;
-  display: flex;
-  gap: 3px;
-}
-
-.education-number {
-  align-self: center;
-  font-size: 1.4rem;
-}
-
-.education-info {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 5px;
-  border-left: 4px solid black;
-}
-
 /* Form & Dialog */
 
 .form-dialog {
@@ -115,4 +96,29 @@
 .form-buttons .close-btn:hover {
   color: white;
   background-color: var(--red-button);
+}
+
+/* Education Item */
+
+.education-item {
+  width: 300px;
+  display: flex;
+  gap: 3px;
+}
+
+.education-number {
+  align-self: center;
+  font-size: 1.4rem;
+}
+
+.education-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 5px;
+  border-left: 4px solid black;
+}
+
+.education-item:hover .edit-button {
+  opacity: 1;
 }
