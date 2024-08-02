@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import Input from "./Input";
+import "../styles/Input.css";
 import "../styles/Education.css";
 
 function Item({ number, school, title, degree, start, end }) {
@@ -31,46 +33,41 @@ function Form({ formRef, onClose, onChange, obj }) {
           e.preventDefault();
         }}
       >
-        <label>
-          School / University
-          <input
-            type="text"
-            name="school"
-            onChange={onChange}
-            value={obj.school}
-          />
-        </label>
-        <label>
-          Title of study
-          <input
-            type="text"
-            name="title"
-            onChange={onChange}
-            value={obj.title}
-          />
-        </label>
-        <label>
-          Degree
-          <input
-            type="text"
-            name="degree"
-            onChange={onChange}
-            value={obj.degree}
-          />
-        </label>
-        <label>
-          Start Date
-          <input
-            type="date"
-            name="start"
-            onChange={onChange}
-            value={obj.start}
-          />
-        </label>
-        <label>
-          End Date
-          <input type="date" name="end" onChange={onChange} value={obj.end} />
-        </label>
+        <Input
+          label={"School / University"}
+          type={"text"}
+          name={"school"}
+          onChange={onChange}
+          value={obj.school}
+        />
+        <Input
+          label={"Title of Study"}
+          type={"text"}
+          name={"title"}
+          onChange={onChange}
+          value={obj.title}
+        />
+        <Input
+          label={"Degree"}
+          type={"text"}
+          name={"degree"}
+          onChange={onChange}
+          value={obj.degree}
+        />
+        <Input
+          label={"Start Date"}
+          type={"date"}
+          name={"start"}
+          onChange={onChange}
+          value={obj.start}
+        />
+        <Input
+          label={"End Date"}
+          type={"date"}
+          name={"end"}
+          onChange={onChange}
+          value={obj.end}
+        />
         <div className="form-buttons">
           <button className="close-btn" onClick={() => onClose(false)}>
             Close
