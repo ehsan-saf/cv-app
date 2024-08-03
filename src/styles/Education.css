@@ -122,3 +122,9 @@
 .education-item:hover .edit-button {
   opacity: 1;
 }
+
+.item-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}

@@ -4,7 +4,17 @@ import Input from "./Input";
 import "../styles/Input.css";
 import "../styles/Education.css";
 
-function Item({ id, number, school, title, degree, start, end, onEdit }) {
+function Item({
+  id,
+  number,
+  school,
+  title,
+  degree,
+  start,
+  end,
+  onEdit,
+  onDelete,
+}) {
   return (
     <div className="education-item">
       <div className="education-number">{number}</div>
@@ -20,10 +30,17 @@ function Item({ id, number, school, title, degree, start, end, onEdit }) {
           {`${end === false ? "Now" : end}`}
         </p>
       </div>
-      <div>
+      <div className="item-button-group">
         <button
           className={"btn edit-button"}
           onClick={() => onEdit(id)}
+        ></button>
+        <button
+          className="btn edit-button"
+          onClick={() => onDelete(id)}
+          style={{
+            backgroundImage: "url(src/assets/delete.svg)",
+          }}
         ></button>
       </div>
     </div>
@@ -151,6 +168,11 @@ export default function Education() {
     formRef.current.showModal();
   }
 
+  function handleDelete(id) {
+    const arr = [...educationArray].filter((item) => item.id !== id);
+    setEducationArray(arr);
+  }
+
   function handleChange(e) {
     setSelectedItem({ ...selectedItem, [e.target.name]: e.target.value });
   }
@@ -164,14 +186,6 @@ export default function Education() {
         </button>
       </div>
       <div className="education-container">
-        <Item
-          number={1}
-          school={"Farhangia"}
-          title={"Elementary education"}
-          degree={"Bachelor"}
-          start={"2021/10/05"}
-          end={false}
-        />
         {educationArray.map((item, index) => {
           return (
             <Item
@@ -184,6 +198,7 @@ export default function Education() {
               start={item.start}
               end={item.end}
               onEdit={handleEdit}
+              onDelete={handleDelete}
             />
           );
         })}
