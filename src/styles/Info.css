@@ -50,8 +50,6 @@
 
   padding: 20px;
 
-  margin-top: 15px;
-
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
@@ -60,8 +58,11 @@
 }
 
 .edit-button {
+  display: flex;
+  justify-content: center;
+
   opacity: 0;
-  transform: translateY(4px);
+  transform: translateY(2px);
 
   background-image: url("../assets/edit.svg");
 

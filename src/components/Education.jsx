@@ -36,7 +36,7 @@ function Item({
           onClick={() => onEdit(id)}
         ></button>
         <button
-          className="btn edit-button"
+          className="btn edit-button delete-button"
           onClick={() => onDelete(id)}
           style={{
             backgroundImage: "url(src/assets/delete.svg)",
