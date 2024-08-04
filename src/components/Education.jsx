@@ -147,7 +147,8 @@ export default function Education() {
           });
           setEducationArray(arr);
         } else {
-          const newItem = { id: uuidv4(), ...selectedItem };
+          const newItem = { ...selectedItem, id: uuidv4() };
+          console.log(newItem);
           setEducationArray([...educationArray, newItem]);
         }
       } else {
@@ -169,7 +170,10 @@ export default function Education() {
   }
 
   function handleDelete(id) {
-    const arr = [...educationArray].filter((item) => item.id !== id);
+    console.log(id);
+    const arr = educationArray.filter((item) => item.id !== id);
+    console.log("Filtered array : ");
+    console.log(arr);
     setEducationArray(arr);
   }
 
