@@ -139,7 +139,6 @@ export default function Education() {
         if (inputMode === "edit") {
           const arr = educationArray.map((item) => {
             if (item.id === selectedId) {
-              console.log(selectedItem);
               return { ...selectedItem, id: item.id };
             } else {
               return item;
@@ -148,7 +147,6 @@ export default function Education() {
           setEducationArray(arr);
         } else {
           const newItem = { ...selectedItem, id: uuidv4() };
-          console.log(newItem);
           setEducationArray([...educationArray, newItem]);
         }
       } else {
@@ -165,15 +163,12 @@ export default function Education() {
   function handleEdit(id) {
     setInputMode("edit");
     setSelectedId(id);
-    setSelectedItem(educationArray.find((item) => item.id === selectedId));
+    setSelectedItem(educationArray.find((item) => item.id === id));
     formRef.current.showModal();
   }
 
   function handleDelete(id) {
-    console.log(id);
     const arr = educationArray.filter((item) => item.id !== id);
-    console.log("Filtered array : ");
-    console.log(arr);
     setEducationArray(arr);
   }
 
