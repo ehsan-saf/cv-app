@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Input from "./Input";
 import "../styles/Experience.css";
+import SectionTop from "./SectionTop";
 
 function Item({
   id,
@@ -178,29 +179,7 @@ export default function Experience() {
 
   return (
     <>
-      <div className="section-top">
-        <h2>Experience</h2>
-        <button className="add-button" onClick={handleOpenClose}>
-          Add{" "}
-          <span>
-            <svg
-              width="800px"
-              height="800px"
-              viewBox="0 0 24 24"
-              fill="white"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 12H18M12 6V18"
-                stroke="#000000"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
+      <SectionTop title="Experience" onClick={handleOpenClose} />
       <div className="job-container">
         {jobArray.map((item, index) => {
           return (
