@@ -1,12 +1,3 @@
-:root {
-  --green-button: green;
-  --red-button: red;
-  --bg-button: hsl(0, 0%, 97%);
-  --input-border: hsl(217, 90%, 43%);
-  --input-border-active: hsl(217, 90%, 35%);
-  --input-bg: hsl(0, 0%, 99%);
-}
-
 .section-top {
   display: flex;
   gap: 30px;
@@ -43,79 +34,51 @@
   transform: translateY(-2px);
 }
 
-.education-container {
+.job-container {
   display: flex;
   padding: 20px;
 }
 
 /* Form & Dialog */
 
-.form-dialog {
-  margin: 0 auto;
+.job-textarea {
+  resize: none;
+}
 
+.job-textarea {
   border: none;
   border-radius: 10px;
-
-  min-width: 350px;
-  max-width: 450px;
-
-  padding: 30px;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.job-textarea {
+  font-size: 1rem;
+
+  padding: 8px 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+
+  background-color: var(--input-bg);
 }
 
-.form-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+.job-textarea:active,
+.job-textarea:focus {
+  outline-color: var(--input-border-active);
 }
 
-.form-buttons button {
-  background-color: var(--bg-button);
+/* Experience Item */
 
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-
-  cursor: pointer;
-}
-
-.form-buttons .open-btn {
-  border: 1px solid var(--green-button);
-}
-
-.form-buttons .close-btn {
-  border: 1px solid var(--red-button);
-}
-
-.form-buttons .open-btn:hover {
-  color: white;
-  background-color: var(--green-button);
-}
-
-.form-buttons .close-btn:hover {
-  color: white;
-  background-color: var(--red-button);
-}
-
-/* Education Item */
-
-.education-item {
+.job-item {
   width: 300px;
   display: flex;
   gap: 3px;
 }
 
-.education-number {
+.job-number {
   align-self: center;
   font-size: 1.4rem;
 }
 
-.education-info {
+.job-info {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -123,7 +86,7 @@
   border-left: 4px solid black;
 }
 
-.education-item:hover .edit-button {
+.job-item:hover .edit-button {
   opacity: 1;
   transform: translateY(-2px);
 }
