@@ -1,10 +1,9 @@
 .section-container {
-  padding: 20px;
 }
 
 .section-title {
   padding-bottom: 3px;
-  border-bottom: 2px solid blue;
+  border-bottom: var(--section-border);
 }
 
 .inputs {

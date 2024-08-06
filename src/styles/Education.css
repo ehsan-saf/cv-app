@@ -1,45 +1,67 @@
 :root {
-  --green-button: green;
+  --green-button-bg: hsl(120, 91%, 36%);
   --red-button: red;
-  --bg-button: hsl(0, 0%, 97%);
   --input-border: hsl(217, 90%, 43%);
   --input-border-active: hsl(217, 90%, 35%);
   --input-bg: hsl(0, 0%, 99%);
+  --section-border: 1px solid hsl(240, 83%, 46%);
 }
 
 .section-top {
   display: flex;
   gap: 30px;
   padding: 5px;
-  border-bottom: 2px solid blue;
+  border-bottom: var(--section-border);
 }
 
 .add-button {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 3px;
 
   padding: 2px 10px;
 
-  border: 1px solid hsl(126, 17%, 25%);
+  outline: 1px solid hsl(126, 17%, 25%);
+  border: none;
   border-radius: 10px;
 
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
 
+  color: white;
+  background-color: var(--green-button-bg);
+
   cursor: pointer;
 
   transition: transform 0.2s;
 }
 
-.add-button span {
-  font-size: 1.5rem;
+.add-button svg {
+  width: 35px;
+  height: 35px;
+  transform-origin: center;
+  transition: 0.8s transform;
+}
+
+.add-button path {
+  stroke: white;
+}
+
+.add-button:hover svg {
+  transform: rotate(180deg);
+  transition: 0.6s transform;
+}
+
+.add-button:hover path {
+  stroke: black;
 }
 
 .add-button:hover {
-  color: hsl(0, 0%, 93%);
-  background-color: hsl(125, 46%, 34%);
+  color: black;
+  background-color: white;
+  outline: 3px solid var(--green-button-bg);
   transform: translateY(-2px);
 }
 
@@ -85,7 +107,7 @@
 }
 
 .form-buttons .open-btn {
-  border: 1px solid var(--green-button);
+  border: 1px solid var(--green-button-bg);
 }
 
 .form-buttons .close-btn {
@@ -94,7 +116,7 @@
 
 .form-buttons .open-btn:hover {
   color: white;
-  background-color: var(--green-button);
+  background-color: var(--green-button-bg);
 }
 
 .form-buttons .close-btn:hover {

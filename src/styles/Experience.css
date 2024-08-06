@@ -1,39 +1,3 @@
-.section-top {
-  display: flex;
-  gap: 30px;
-  padding: 5px;
-  border-bottom: 2px solid blue;
-}
-
-.add-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 2px 10px;
-
-  border: 1px solid hsl(126, 17%, 25%);
-  border-radius: 10px;
-
-  font-size: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-
-  cursor: pointer;
-
-  transition: transform 0.2s;
-}
-
-.add-button span {
-  font-size: 1.5rem;
-}
-
-.add-button:hover {
-  color: hsl(0, 0%, 93%);
-  background-color: hsl(125, 46%, 34%);
-  transform: translateY(-2px);
-}
-
 .job-container {
   display: flex;
   padding: 20px;
