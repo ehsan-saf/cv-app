@@ -3,7 +3,7 @@ export default function SectionTop({ title, onClick }) {
     <div className="section-top">
       <h2>{title}</h2>
       <button
-        className="add-button bg-green-500 hover:bg-green-700"
+        className="add-button bg-sky-500 hover:bg-sky-700"
         onClick={onClick}
       >
         Add{" "}

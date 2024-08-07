@@ -178,7 +178,7 @@ export default function Experience() {
   }
 
   return (
-    <>
+    <div className="section-container">
       <SectionTop title="Experience" onClick={handleOpenClose} />
       <div className="job-container">
         {jobArray.map((item, index) => {
@@ -204,6 +204,6 @@ export default function Experience() {
           obj={selectedItem}
         />
       </div>
-    </>
+    </div>
   );
 }

@@ -178,7 +178,7 @@ export default function Education() {
   }
 
   return (
-    <>
+    <div className="section-container">
       <SectionTop title={"Education"} onClick={handleOpenClose} />
       <div className="education-container">
         {educationArray.map((item, index) => {
@@ -204,6 +204,6 @@ export default function Education() {
           obj={selectedItem}
         />
       </div>
-    </>
+    </div>
   );
 }
