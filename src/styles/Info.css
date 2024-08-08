@@ -43,21 +43,6 @@
   border-bottom: 1px solid black;
 }
 
-.btn {
-  appearance: none;
-  border: none;
-  border-radius: 50%;
-
-  padding-right: 20px;
-  padding-left: 20px;
-
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  cursor: pointer;
-}
-
 .edit-button {
   display: flex;
   justify-content: center;

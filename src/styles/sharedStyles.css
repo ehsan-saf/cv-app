@@ -20,6 +20,20 @@
   border-bottom: var(--section-border);
 }
 
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: 50%;
+
+  padding: 5px 0;
+
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+}
+
 .add-button {
   display: flex;
   justify-content: center;
@@ -60,4 +74,10 @@
 
 .add-button:hover {
   transform: translateY(-2px);
+}
+
+.item-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }

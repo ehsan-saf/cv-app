@@ -78,9 +78,3 @@
 .edit-button.delete-button::before {
   content: "Remove";
 }
-
-.item-button-group {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
