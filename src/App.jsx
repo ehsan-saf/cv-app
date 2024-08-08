@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles/App.css";
+import "./styles/sharedStyles.css";
 import General from "./components/General";
 import Education from "./components/Education";
 import Experience from "./components/Experience";

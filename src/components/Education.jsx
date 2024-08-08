@@ -180,7 +180,7 @@ export default function Education() {
   return (
     <div className="section-container">
       <SectionTop title={"Education"} onClick={handleOpenClose} />
-      <div className="education-container">
+      <div className="items-container">
         {educationArray.map((item, index) => {
           return (
             <Item
