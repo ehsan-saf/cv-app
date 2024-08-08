@@ -61,8 +61,14 @@
 }
 
 .confirm-button {
+  flex: 1;
+  max-width: 35px;
   background-image: url(../assets/confirm.svg);
 }
+
+/* .info-container:hover .confirm-button {
+  opacity: 1;
+} */
 
 .confirm-button:hover ~ .info-label input {
   outline: 2px solid green;
