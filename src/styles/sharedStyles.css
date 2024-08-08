@@ -17,6 +17,7 @@
   align-items: center;
   gap: 30px;
   padding: 5px;
+  margin-bottom: 15px;
   border-bottom: var(--section-border);
 }
 

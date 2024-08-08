@@ -180,7 +180,7 @@ export default function Experience() {
   return (
     <div className="section-container">
       <SectionTop title="Experience" onClick={handleOpenClose} />
-      <div className="job-container">
+      <div className="items-container">
         {jobArray.map((item, index) => {
           return (
             <Item
