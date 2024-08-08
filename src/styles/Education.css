@@ -73,6 +73,11 @@
   border-left: 4px solid black;
 }
 
+.education-school {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
 .education-item:hover .edit-button {
   opacity: 1;
   transform: translateY(-2px);
