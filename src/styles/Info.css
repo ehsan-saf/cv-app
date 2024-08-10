@@ -9,8 +9,14 @@
 .info-label {
   flex: 1 0 0%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 20px;
   margin-top: 20px;
+}
+
+.info-icon {
+  width: 28px;
+  height: 28px;
 }
 
 .general_input {

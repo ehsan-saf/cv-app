@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/Info.css";
 
-export default function Info({ infoName, type }) {
+export default function Info({ infoName, type, icon }) {
   const [text, setText] = useState("");
   const [isEditing, SetIsEditing] = useState(false);
 
@@ -21,7 +21,7 @@ export default function Info({ infoName, type }) {
         <button className="btn edit-button" onClick={toggleMode}></button>
       )}
       <label className="info-label">
-        <p className="infoTitle">{infoName}</p>
+        {icon}
         {isEditing ? (
           <>
             <input
