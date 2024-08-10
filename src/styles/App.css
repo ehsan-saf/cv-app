@@ -11,8 +11,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.section-container h2 {
-  font-size: 1.4rem;
-  font-weight: bold;
-}
