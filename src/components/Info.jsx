@@ -56,13 +56,29 @@ export function Textarea({ infoName, icon }) {
   }
 
   return (
-    <div className="info-container">
+    <div
+      className="info-container"
+      style={{
+        width: 400,
+      }}
+    >
       {isEditing ? (
-        <button className="btn confirm-button" onClick={toggleMode}></button>
+        <button
+          className="btn confirm-button"
+          onClick={toggleMode}
+          style={{
+            flex: "none",
+          }}
+        ></button>
       ) : (
         <button className="btn edit-button" onClick={toggleMode}></button>
       )}
-      <label className="info-label">
+      <label
+        className="info-label"
+        style={{
+          flex: 1,
+        }}
+      >
         {icon}
         {isEditing ? (
           <>
@@ -70,10 +86,18 @@ export function Textarea({ infoName, icon }) {
               className="textarea"
               onChange={handleChange}
               value={text}
+              style={{
+                flex: 1,
+              }}
             ></textarea>
           </>
         ) : (
-          <p className="info">
+          <p
+            className="info"
+            style={{
+              flex: 1,
+            }}
+          >
             {text.trim() === "" ? `Enter your ${infoName}` : text}
           </p>
         )}
