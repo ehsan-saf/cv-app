@@ -73,7 +73,7 @@ function Form({ formRef, onClose, onChange, obj }) {
           Main responsibilites
           <textarea
             name="responsibility"
-            className="job-textarea"
+            className="textarea"
             onChange={onChange}
             value={obj.responsibility}
           ></textarea>

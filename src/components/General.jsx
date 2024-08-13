@@ -1,5 +1,5 @@
 import "../styles/General.css";
-import Info from "./Info";
+import { Info, Textarea } from "./Info";
 
 export default function General() {
   const nameIcon = (
@@ -32,15 +32,22 @@ export default function General() {
   return (
     <div className="section-container">
       <h2 className="section-title">General</h2>
-      <div className="inputs">
-        <Info infoName={"Name"} icon={nameIcon} type={"text"} key={0} />
-        <Info infoName={"Email"} icon={mailIcon} type={"email"} key={1} />
-        <Info
-          infoName={"Phone Number"}
-          icon={numberIcon}
-          type={"tel"}
-          key={2}
-        />
+      <div className="general-container">
+        <div>
+          <div className="inputs">
+            <Info infoName={"Name"} icon={nameIcon} type={"text"} key={0} />
+            <Info infoName={"Email"} icon={mailIcon} type={"email"} key={1} />
+            <Info
+              infoName={"Phone Number"}
+              icon={numberIcon}
+              type={"tel"}
+              key={2}
+            />
+          </div>
+        </div>
+        <label className="about-container">
+          <Textarea infoName={"About me"} />
+        </label>
       </div>
     </div>
   );

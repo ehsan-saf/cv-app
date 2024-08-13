@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/Info.css";
 
-export default function Info({ infoName, type, icon }) {
+export function Info({ infoName, type, icon }) {
   const [text, setText] = useState("");
   const [isEditing, SetIsEditing] = useState(false);
 
@@ -31,6 +31,46 @@ export default function Info({ infoName, type, icon }) {
               value={text}
               onChange={handleChange}
             />
+          </>
+        ) : (
+          <p className="info">
+            {text.trim() === "" ? `Enter your ${infoName}` : text}
+          </p>
+        )}
+      </label>
+    </div>
+  );
+}
+
+// About ME Textarea
+export function Textarea({ infoName, icon }) {
+  const [text, setText] = useState("");
+  const [isEditing, SetIsEditing] = useState(false);
+
+  function handleChange(e) {
+    setText(e.target.value);
+  }
+
+  function toggleMode() {
+    SetIsEditing(!isEditing);
+  }
+
+  return (
+    <div className="info-container">
+      {isEditing ? (
+        <button className="btn confirm-button" onClick={toggleMode}></button>
+      ) : (
+        <button className="btn edit-button" onClick={toggleMode}></button>
+      )}
+      <label className="info-label">
+        {icon}
+        {isEditing ? (
+          <>
+            <textarea
+              className="textarea"
+              onChange={handleChange}
+              value={text}
+            ></textarea>
           </>
         ) : (
           <p className="info">

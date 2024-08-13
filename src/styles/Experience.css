@@ -5,16 +5,9 @@
 
 /* Form & Dialog */
 
-.job-textarea {
+.textarea {
   resize: none;
-}
 
-.job-textarea {
-  border: none;
-  border-radius: 10px;
-}
-
-.job-textarea {
   font-size: 1rem;
 
   padding: 8px 10px;
@@ -25,8 +18,8 @@
   background-color: var(--input-bg);
 }
 
-.job-textarea:active,
-.job-textarea:focus {
+.textarea:active,
+.textarea:focus {
   outline-width: 2px;
   outline-color: var(--input-border-active);
 }
