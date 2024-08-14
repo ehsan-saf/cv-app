@@ -56,12 +56,7 @@ export function Textarea({ infoName, icon }) {
   }
 
   return (
-    <div
-      className="info-container"
-      style={{
-        width: 400,
-      }}
-    >
+    <div className="info-container">
       {isEditing ? (
         <button
           className="btn confirm-button"
