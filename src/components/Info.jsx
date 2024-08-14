@@ -77,13 +77,14 @@ export function Textarea({ infoName, icon }) {
         className="info-label"
         style={{
           flex: 1,
+          marginTop: "7px",
         }}
       >
         {icon}
         {isEditing ? (
           <>
             <textarea
-              className="textarea"
+              className="textarea about-textarea"
               onChange={handleChange}
               value={text}
               style={{
@@ -93,7 +94,7 @@ export function Textarea({ infoName, icon }) {
           </>
         ) : (
           <p
-            className="info"
+            className="about-info"
             style={{
               flex: 1,
             }}

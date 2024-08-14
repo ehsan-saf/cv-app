@@ -47,6 +47,7 @@ h2 {
   --input-border-active: hsl(217, 90%, 35%);
   --input-bg: hsl(0, 0%, 99%);
   --section-border: 1px solid hsl(240, 83%, 46%);
+  --info-border: 1px solid black;
 }
 
 .section-top {

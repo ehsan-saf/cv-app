@@ -33,19 +33,18 @@ export default function General() {
     <div className="section-container">
       <h2 className="section-title">General</h2>
       <div className="general-container">
-        <div>
-          <div className="inputs">
-            <Info infoName={"Name"} icon={nameIcon} type={"text"} key={0} />
-            <Info infoName={"Email"} icon={mailIcon} type={"email"} key={1} />
-            <Info
-              infoName={"Phone Number"}
-              icon={numberIcon}
-              type={"tel"}
-              key={2}
-            />
-          </div>
+        <div className="inputs">
+          <Info infoName={"Name"} icon={nameIcon} type={"text"} key={0} />
+          <Info infoName={"Email"} icon={mailIcon} type={"email"} key={1} />
+          <Info
+            infoName={"Phone Number"}
+            icon={numberIcon}
+            type={"tel"}
+            key={2}
+          />
         </div>
         <label className="about-container">
+          <div className="about-title">About me</div>
           <Textarea infoName={"About me"} />
         </label>
       </div>
