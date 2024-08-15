@@ -85,6 +85,8 @@ export function Textarea({ infoName, icon }) {
               style={{
                 flex: 1,
               }}
+              maxLength={115}
+              rows={7}
             ></textarea>
           </>
         ) : (
