@@ -95,6 +95,14 @@ export function Textarea({ infoName, icon }) {
               rows={7}
             ></textarea>
             <div className="text-limit">{charCapacity}</div>
+            <button
+              className="clear-text"
+              onClick={() => {
+                setText("");
+              }}
+            >
+              clear
+            </button>
           </div>
         ) : (
           <p
