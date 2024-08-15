@@ -46,6 +46,8 @@ export function Info({ infoName, type, icon }) {
 export function Textarea({ infoName, icon }) {
   const [text, setText] = useState("");
   const [isEditing, SetIsEditing] = useState(false);
+  const charLimit = 110;
+  const charCapacity = `${text.length} / ${charLimit}`;
 
   function handleChange(e) {
     setText(e.target.value);
@@ -77,7 +79,11 @@ export function Textarea({ infoName, icon }) {
       >
         {icon}
         {isEditing ? (
-          <>
+          <div
+            style={{
+              position: "relative",
+            }}
+          >
             <textarea
               className="textarea about-textarea"
               onChange={handleChange}
@@ -85,10 +91,11 @@ export function Textarea({ infoName, icon }) {
               style={{
                 flex: 1,
               }}
-              maxLength={115}
+              maxLength={charLimit}
               rows={7}
             ></textarea>
-          </>
+            <div className="text-limit">{charCapacity}</div>
+          </div>
         ) : (
           <p
             className="about-info"

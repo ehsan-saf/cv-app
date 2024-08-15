@@ -49,3 +49,10 @@
 .about-info {
   font-size: 1.4rem;
 }
+
+.text-limit {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: hsla(0, 0%, 0%, 0.6);
+}
