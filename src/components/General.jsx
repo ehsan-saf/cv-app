@@ -1,5 +1,6 @@
 import "../styles/General.css";
 import { Info, Textarea } from "./Info";
+import addPhoto from "../assets/add-photo.svg";
 
 export default function General() {
   const nameIcon = (
@@ -41,6 +42,19 @@ export default function General() {
             icon={numberIcon}
             type={"tel"}
             key={2}
+          />
+        </div>
+        <div className="photo-container">
+          <label htmlFor="photo_file">
+            <img className="photo" src={addPhoto} alt="Add you photo" />
+          </label>
+          <input
+            type="file"
+            name=""
+            id="photo_file"
+            style={{
+              opacity: 0,
+            }}
           />
         </div>
         <label className="about-container">

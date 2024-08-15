@@ -18,7 +18,7 @@
 .general-container {
   display: grid;
   align-items: start;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 230px;
 }
 
@@ -76,4 +76,30 @@
 .clear-text:hover {
   color: white;
   background-color: hsl(208, 100%, 60%);
+}
+
+/* ---------------------------------------------------- */
+
+.photo-container {
+  position: relative;
+  align-self: center;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.photo {
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+
+  border: 1px solid black;
+  border-radius: 20%;
+  cursor: pointer;
+}
+
+#photo_file {
+  position: absolute;
+  top: 70px;
+  left: 95px;
+  width: 150px;
 }
