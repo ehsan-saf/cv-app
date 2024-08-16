@@ -1,6 +1,7 @@
 import "../styles/General.css";
 import { Info, Textarea } from "./Info";
-import addPhoto from "../assets/add-photo.svg";
+import imagePlaceholder from "../assets/add-photo.svg";
+import { useState } from "react";
 
 export default function General() {
   const nameIcon = (
@@ -30,6 +31,24 @@ export default function General() {
       <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
     </svg>
   );
+
+  const [image, setImage] = useState(imagePlaceholder);
+
+  function updateImage(e) {
+    const file = e.target.files[0];
+    if (validImageType(file)) {
+      setImage(URL.createObjectURL(file));
+    } else {
+      alert("Please choose a photo with following formats:\njpg - jpeg - png");
+    }
+  }
+
+  const fileTypes = ["image/jpg", "image/jpeg", "image/png"];
+
+  function validImageType(file) {
+    return fileTypes.includes(file.type);
+  }
+
   return (
     <div className="section-container">
       <h2 className="section-title">General</h2>
@@ -44,17 +63,19 @@ export default function General() {
             key={2}
           />
         </div>
-        <div className="photo-container">
-          <label htmlFor="photo_file">
-            <img className="photo" src={addPhoto} alt="Add you photo" />
+        <div className="image-container">
+          <label htmlFor="image_file">
+            <img className="image" src={image} alt="Add you image" />
           </label>
           <input
             type="file"
             name=""
-            id="photo_file"
+            id="image_file"
             style={{
               opacity: 0,
             }}
+            accept={".jpg, .jpeg, .png"}
+            onChange={updateImage}
           />
         </div>
         <label className="about-container">

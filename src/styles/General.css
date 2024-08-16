@@ -37,6 +37,7 @@
 .textarea.about-textarea {
   height: 200px;
   font-size: 1.4rem;
+  line-break: anywhere;
 }
 
 .about-title {
@@ -48,6 +49,7 @@
 
 .about-info {
   font-size: 1.4rem;
+  line-break: anywhere;
 }
 
 .text-limit {
@@ -80,16 +82,16 @@
 
 /* ---------------------------------------------------- */
 
-.photo-container {
+.image-container {
   position: relative;
   align-self: center;
   width: 200px;
   margin: 0 auto;
 }
 
-.photo {
-  padding: 20px;
-  width: 100%;
+.image {
+  width: 250px;
+  height: 160px;
   margin: 0 auto;
 
   border: 1px solid black;
@@ -97,7 +99,11 @@
   cursor: pointer;
 }
 
-#photo_file {
+.image:hover {
+  filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.5));
+}
+
+#image_file {
   position: absolute;
   top: 70px;
   left: 95px;
