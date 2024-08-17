@@ -1,7 +1,6 @@
 import "../styles/General.css";
 import { Info, Textarea } from "./Info";
-import imagePlaceholder from "../assets/add-photo.svg";
-import { useState } from "react";
+import Image from "./Image";
 
 export default function General() {
   const nameIcon = (
@@ -32,23 +31,6 @@ export default function General() {
     </svg>
   );
 
-  const [image, setImage] = useState(imagePlaceholder);
-
-  function updateImage(e) {
-    const file = e.target.files[0];
-    if (validImageType(file)) {
-      setImage(URL.createObjectURL(file));
-    } else {
-      alert("Please choose a photo with following formats:\njpg - jpeg - png");
-    }
-  }
-
-  const fileTypes = ["image/jpg", "image/jpeg", "image/png"];
-
-  function validImageType(file) {
-    return fileTypes.includes(file.type);
-  }
-
   return (
     <div className="section-container">
       <h2 className="section-title">General</h2>
@@ -63,21 +45,7 @@ export default function General() {
             key={2}
           />
         </div>
-        <div className="image-container">
-          <label htmlFor="image_file">
-            <img className="image" src={image} alt="Add you image" />
-          </label>
-          <input
-            type="file"
-            name=""
-            id="image_file"
-            style={{
-              opacity: 0,
-            }}
-            accept={".jpg, .jpeg, .png"}
-            onChange={updateImage}
-          />
-        </div>
+        <Image />
         <label className="about-container">
           <div className="about-title">About me</div>
           <Textarea infoName={"About me"} />
