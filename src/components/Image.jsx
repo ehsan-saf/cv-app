@@ -3,26 +3,14 @@ import ReactDOM from "react-dom";
 import imagePlaceholder from "../assets/add-photo.svg";
 import Cropper from "react-easy-crop";
 
-function CropDialog({ dialogRef, selectedImage }) {
-  const [crop, setCrop] = useState({ x: 0, y: 0 });
-  const [zoom, setZoom] = useState(1);
-
-  const onCropChange = (crop) => {
-    console.log("Crop :");
-    console.log(crop);
-    setCrop(crop);
-  };
-
-  const onCropComplete = (croppedArea, croppedAreaPixels) => {
-    console.log(croppedAreaPixels.width / croppedAreaPixels.height);
-  };
-
-  const onZoomChange = (zoom) => {
-    console.log("Zoom");
-    console.log(zoom);
-    setZoom(zoom);
-  };
-
+function CropDialog({
+  dialogRef,
+  selectedImage,
+  crop,
+  zoom,
+  onCropChange,
+  onZoomChange,
+}) {
   return (
     <dialog className="crop-dialog" ref={dialogRef}>
       <div className="crop-container">
@@ -34,7 +22,6 @@ function CropDialog({ dialogRef, selectedImage }) {
           cropShape="round"
           showGrid={false}
           onCropChange={onCropChange}
-          onCropComplete={onCropComplete}
           onZoomChange={onZoomChange}
         />
       </div>
@@ -50,12 +37,32 @@ function CropDialog({ dialogRef, selectedImage }) {
   );
 }
 
+// -------------------------------------------------------------
+
 export default function Image() {
-  const [image, setImage] = useState(imagePlaceholder);
-  const [imageUrl, setImageUrl] = useState(null);
+  const [imageUrl, setImageUrl] = useState(imagePlaceholder);
+  const [imageStyle, setImageStyle] = useState({});
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
   const dialogRef = useRef(null);
 
-  async function updateImage(e) {
+  const onCropChange = (crop) => {
+    console.log("Crop :");
+    console.log(crop);
+    setCrop(crop);
+  };
+
+  const onZoomChange = (zoom) => {
+    setZoom(zoom);
+  };
+
+  function saveImage() {
+    setImageStyle({
+      transform: `translate(${crop.x}, ${crop.y})`,
+    });
+  }
+
+  async function selectImage(e) {
     const file = e.target.files[0];
     if (validImageType(file)) {
       //   setImage(URL.createObjectURL(file));
@@ -92,21 +99,33 @@ export default function Image() {
 
   return (
     <>
-      <CropDialog dialogRef={dialogRef} selectedImage={imageUrl} />
+      <CropDialog
+        dialogRef={dialogRef}
+        selectedImage={imageUrl}
+        crop={crop}
+        zoom={zoom}
+        onCropChange={onCropChange}
+        onZoomChange={onZoomChange}
+      />
       <div className="image-container">
-        <label htmlFor="image_file">
-          <img className="image" src={image} alt="Add you image" />
-        </label>
-        <input
-          type="file"
-          name=""
-          id="image_file"
-          style={{
-            opacity: 0,
-          }}
-          accept={".jpg, .jpeg, .png"}
-          onChange={updateImage}
+        <img
+          className="image"
+          src={imageUrl}
+          alt="Add you image"
+          style={imageStyle}
         />
+        <label htmlFor="image_file">
+          <input
+            type="file"
+            name=""
+            id="image_file"
+            style={{
+              opacity: 0,
+            }}
+            accept={".jpg, .jpeg, .png"}
+            onChange={selectImage}
+          />
+        </label>
       </div>
     </>
   );

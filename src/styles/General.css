@@ -86,16 +86,18 @@
   position: relative;
   align-self: center;
   width: 200px;
+  padding: 100px;
+  overflow: hidden;
   margin: 0 auto;
 }
 
 .image {
-  width: 250px;
-  height: 160px;
-  margin: 0 auto;
-
-  border: 1px solid black;
-  border-radius: 20%;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
   cursor: pointer;
 }
 
@@ -107,7 +109,6 @@
   position: absolute;
   top: 70px;
   left: 95px;
-  width: 150px;
 }
 
 /* ---------------------- */
