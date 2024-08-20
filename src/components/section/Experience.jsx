@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Input from "./Input";
-import "../styles/Experience.css";
-import SectionTop from "./SectionTop";
+import Input from "../inside-section/Input";
+import "../../styles/section/Experience.css";
+import SectionTop from "../inside-section/SectionTop";
 
 function Item({
   id,

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/Info.css";
+import "../../styles/inside-section/Info.css";
 
 export function Info({ infoName, type, icon }) {
   const [text, setText] = useState("");

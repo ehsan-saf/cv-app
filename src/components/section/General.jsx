@@ -1,5 +1,5 @@
-import "../styles/General.css";
-import { Info, Textarea } from "./Info";
+import "../../styles/General.css";
+import { Info, Textarea } from "../inside-section/Info";
 
 export default function General() {
   const nameIcon = (

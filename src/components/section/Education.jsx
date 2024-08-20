@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Input from "./Input";
-import "../styles/Input.css";
-import "../styles/Education.css";
-import SectionTop from "./SectionTop";
+import Input from "../inside-section/Input";
+import "../../styles/inside-section/Input.css";
+import "../../styles/section/Education.css";
+import SectionTop from "../inside-section/SectionTop";
 
 function Item({
   id,

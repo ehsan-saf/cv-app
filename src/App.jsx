@@ -1,16 +1,16 @@
-import { useState } from "react";
-import "./styles/App.css";
 import "./styles/sharedStyles.css";
-import General from "./components/General";
-import Education from "./components/Education";
-import Experience from "./components/Experience";
+import General from "./components/section/General";
+import Education from "./components/section/Education";
+import Experience from "./components/section/Experience";
 
 function App() {
   return (
     <div className="page-container">
-      <General />
-      <Education />
-      <Experience />
+      <div className="resume-container">
+        <General />
+        <Education />
+        <Experience />
+      </div>
     </div>
   );
 }

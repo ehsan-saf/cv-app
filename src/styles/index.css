@@ -47,3 +47,21 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+.resume-container {
+  width: 1000px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-container {
+  display: grid;
+  grid-template-columns: 1fr 1000px;
+}
