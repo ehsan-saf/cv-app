@@ -1,4 +1,4 @@
-import "../../styles/General.css";
+import "../../styles/section/General.css";
 import { Info, Textarea } from "../inside-section/Info";
 
 export default function General() {

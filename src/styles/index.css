@@ -63,5 +63,7 @@ h6 {
 
 .page-container {
   display: grid;
-  grid-template-columns: 1fr 1000px;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  padding: 30px;
 }

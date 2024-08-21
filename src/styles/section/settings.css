@@ -1,0 +1,58 @@
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  height: 450px;
+  padding: 10px;
+
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+/* Buttons */
+
+.setting-btn {
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+
+  background: white;
+
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+
+  cursor: pointer;
+
+  transition: transform 0.2s;
+}
+
+.btn-icon {
+  width: 35px;
+  fill: black;
+  transition: transform 0.4s;
+}
+
+.setting-btn:hover .btn-icon {
+  fill: hsl(0, 0%, 99%);
+  transform: translateY(3px);
+}
+
+.download-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  outline: 2px solid #075985;
+}
+
+.download-btn:hover {
+  outline: none;
+  color: hsl(0, 0%, 99%);
+  background: #075985;
+}
+
+.download-btn:active {
+  transform: translateY(3px);
+}
