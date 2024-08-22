@@ -1,9 +1,15 @@
 import "../../styles/section/settings.css";
+import html2pdf from "html2pdf.js";
 
 export default function Settings() {
+  function downloadPdf() {
+    const resume = document.querySelector(".resume-container");
+    html2pdf(resume, { margin: 20 });
+  }
+
   return (
     <div className="settings-container">
-      <button className="setting-btn download-btn">
+      <button className="setting-btn download-btn" onClick={downloadPdf}>
         <span>Download</span>
         <span>
           <svg
