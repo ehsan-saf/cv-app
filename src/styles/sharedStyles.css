@@ -120,3 +120,7 @@ h2 {
   flex-direction: column;
   gap: 15px;
 }
+
+.btn.delete-button {
+  background-image: url("/src/assets/delete.svg");
+}

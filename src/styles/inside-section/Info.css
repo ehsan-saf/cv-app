@@ -54,9 +54,11 @@
   opacity: 0;
   transform: translateY(2px);
 
-  background-image: url("/src/assets/edit.svg");
-
   transition: opacity 0.2s, transform 0.2s;
+}
+
+.edit-button {
+  background-image: url("/src/assets/edit.svg");
 }
 
 .info-container:hover .edit-button {

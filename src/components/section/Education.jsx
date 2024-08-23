@@ -39,9 +39,6 @@ function Item({
         <button
           className="btn edit-button delete-button"
           onClick={() => onDelete(id)}
-          style={{
-            backgroundImage: "url(src/assets/delete.svg)",
-          }}
         ></button>
       </div>
     </div>
